@@ -47,7 +47,7 @@ def test_should_return_part_equals_to_value_when_split_into_one_part(
         value: int,
         number_of_parts: int,
 ) -> None:
-    assert split_integer(value, number_of_parts) == value
+    assert split_integer(value, number_of_parts) == [value]
 
 
 @pytest.mark.parametrize(
