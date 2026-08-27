@@ -47,7 +47,24 @@ def test_should_return_part_equals_to_value_when_split_into_one_part(
         value: int,
         number_of_parts: int,
 ) -> None:
-    assert len(split_integer(value, number_of_parts)) == 1
+    assert split_integer(value, number_of_parts) == value
+
+
+@pytest.mark.parametrize(
+    "value,number_of_parts",
+    [
+        (17, 4),
+        (32, 6),
+        (204, 8)
+    ]
+)
+def test_difference_between_max_and_min_parts_should_not_exceed_one(
+        value: int,
+        number_of_parts: int
+) -> None:
+    result = split_integer(value, number_of_parts)
+
+    assert max(result) - min(result) <= 1
 
 
 @pytest.mark.parametrize(
